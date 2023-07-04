@@ -7,13 +7,20 @@
 
 (set! *warn-on-reflection* true)
 (set! *unchecked-math* :warn-on-boxed)
+
+; this was in some examples but it works without it 
+; disabled after a divide by zero
 #_(m/use-primitive-operators)
+
 
 (def dist-inc 20)
 (def noise (/ m/PI 4))
 (def envelope 40)
 
+; color tool: 
 ; https://bytethisstore.com/tools/pg/color-visualizer?color=%234b8494
+; angles are unused after figuring out the trig way
+; numbering matches up with annotated PDF logo in scratch_images
 (def somata
   {; 1 e59a44 -> d8811e   216, 129, 30
    :1a1 [188 1139 200 25 (+ (/ m/PI 2) 2.499555672593644) 216 129 30]
@@ -172,7 +179,7 @@
       (c2d/set-color c (e 5) (e 6) (e 7) 90)
       (c2d/push-matrix c)
       (c2d/translate c (e 0) (e 1))
-      #_(c2d/rotate c (e 4))
+      ; logo center wasn't quite at (750, 750)
       (c2d/rotate c (+ (/ m/PI 2)
                        (pg/p1-p2->angle
                         [735 730] [(e 0) (e 1)])))
@@ -202,6 +209,9 @@
   (draw-fun-impl canv nil nil nil)
   (c2d/save canv "main.png"))
 
+
+; run all the above in a REPL then run this for a 1 FPS window with 
+; live updates on data/function redefinitions
 #_(def wind (c2d/show-window
              {:canvas canv :window-name "Corona Neurons"
               :refresher :safe :fps 1 :w 900 :h 900

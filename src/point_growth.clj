@@ -9,13 +9,6 @@
 (def my-prng (r/rng :mersenne the-seed))
 
 
-#_(defn p1-p2->angle [[p1x p1y] [p2x p2y]]
-  (m/atan (/ (- p2x p1x) (- p2y p1y))))
-
-#_(defn p1-p2->angle [[p1x p1y] [p2x p2y]]
-  (let [rawtan (m/atan (/ (- p2y p1y) (- p2x p1x)))]
-    (if (> p1x p2x) (+ rawtan m/PI) rawtan)))
-
 (defn p1-p2->angle [[p1x p1y] [p2x p2y]]
   (m/atan2 (- p2y p1y) (- p2x p1x)))
 
@@ -34,14 +27,6 @@
    [p1x p1y] d
    (angle-noise (p1-p2->angle [p1x p1y] [p2x p2y]) n)))
 
-#_(defn p1-p2-dist-noise->approach
-  [[p1x p1y] [p2x p2y] d n]
-  (let [angle (angle-noise
-               (p1-p2->angle [p1x p1y] [p2x p2y]) n)
-        opx (if (< p1x p2x) + -)
-        opy (if (< p1y p2y) + -)]
-    [(opx p1x (* (m/abs (m/cos angle)) d))
-     (opy p1y (* (m/abs (m/sin angle)) d))]))
 
 (defn approach-until-within
   [[p1x p1y] [p2x p2y] d n uw]
