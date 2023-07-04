@@ -1,0 +1,15 @@
+At Elder Research, we listen to understand. In the world of brain science, mirror neurons burst onto the scene back in 1992. Like data science I mean machine learning I mean artificial intelligence, mirror neurons have gone through their own hype cycle, generating keen public interest then becoming less of a magical atomic explanation than first thought and then yet still continuing to be a rich field of study today. Though mirror neurons may not be foundational to human empathy as some once suspected, research still suggests they "contribute to low-level processing of observed actions." This computer-generated drawing based on the Elder Research corona logo consists of abstract neurons whose axons have moved toward each other in a mirrored iteration.
+
+—William Proffitt, 2023
+
+
+Citation: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8785302/
+
+
+
+
+Describe your process - we are curious how you made this awesome design.
+
+Short version: I used the computer to do it.
+
+Longer version: I wrote an iterative algorithm involving trigonometry to get the axons on the drawing to grow toward one another. Once growth was working, I put in a bunch of graphics programming, measurements, and iteration. (Tools included the Clojure programming language, the Calva editor, the Clojure2D graphics library, ImageMagick, and xScope by The Iconfactory.)
